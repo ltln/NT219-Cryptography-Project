@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 500px; margin: 0 auto;">
+        <h3 style="text-align: center; margin-bottom: 0px;">BookStoreOnline</h3>
+        <h1 style="text-align: center; margin-top: 0px;">Hoá đơn thanh toán</h1>
+        <p style="margin-top: 8px; margin-bottom: 8px;">Ngày: {{date}}</p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span>Khách hàng: {{name}}</span>
+            <span>SĐT: {{phone}}</span>       
+        </div>
+        <p style="margin-top: 8px;">Địa chỉ: {{address}}</p>
+        <table style="width: 100%; margin-top: 16px;">
+            <th>
+                <tr>
+                    <td style="width: 40px; text-align: center;">STT</td>
+                    <td style="max-width: 180px;">Tên sách</td>
+                    <td style="min-width: 50px; text-align: right;">Đơn giá</td>
+                    <td style="width: 30px; text-align: center;">SL</td>
+                    <td style="min-width: 50px; text-align: right;">Thành tiền</td>
+                </tr>
+            </th>
+            <td>
+                {{#each items}}
+                <tr>
+                    <td style="text-align: center;">{{this.index}}</td>
+                    <td>{{this.productName}}</td>
+                    <td style="text-align: right;">{{this.price}}đ</td>
+                    <td style="text-align: center;">{{this.quantity}}</td>
+                    <td style="text-align: right;">{{this.subtotal}}đ</td>
+                </tr>
+                {{/each}}
+                
+            </td>
+        </table>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span>Tổng tiền:</span>
+                <span>Mã đơn:</span>
+                <span>Mã giao dịch:</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px; text-align: right;">
+                <span style="font-weight: bold;">{{total}}đ</span>
+                <span>{{orderId}}</span>
+                <span>{{paymentId}}</span>
+            </div>
+        </div>
+        <p style="margin-top: 36px; text-align: center;">Hoá đơn này được xuất cho người dùng {{user}}.<br />Mọi thắc mắc xin liên hệ: contact@bookstore.lt.id.vn</p>
+    </div>
+</body>
+</html>

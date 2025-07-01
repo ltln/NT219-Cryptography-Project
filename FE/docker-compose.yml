@@ -1,0 +1,13 @@
+services:
+  pptmmh-web-1:
+    build: .
+    container_name: pptmmh_web_1
+    command: npm start
+    ports:
+      - "3021:3000"
+    networks:
+      - prod-web-network
+
+networks:
+  prod-web-network:
+    driver: bridge

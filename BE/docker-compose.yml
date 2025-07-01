@@ -1,0 +1,22 @@
+services:
+  pptmmh-prod-1:
+    build: .
+    container_name: pptmmh_api_prod_1
+    command: npm run start:prod
+    ports:
+      - "3111:3000"
+    networks:
+      - ppt-prod-network
+
+  dreamer-prod-2:
+    build: .
+    container_name: pptmmh_api_prod_2
+    command: npm run start:prod
+    ports:
+      - "3112:3000"
+    networks:
+      - ppt-prod-network
+
+networks:
+  ppt-prod-network:
+    driver: bridge
